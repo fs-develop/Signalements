@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalement.API", "Signalement.API\Signalement.API.csproj", "{FBFC831D-D479-4080-9BBF-F4E3D07A24D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalement.Web", "Signalement.Web\Signalement.Web.csproj", "{1C6C9841-7727-40BF-BA15-ED17654A118B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBFC831D-D479-4080-9BBF-F4E3D07A24D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBFC831D-D479-4080-9BBF-F4E3D07A24D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBFC831D-D479-4080-9BBF-F4E3D07A24D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBFC831D-D479-4080-9BBF-F4E3D07A24D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C6C9841-7727-40BF-BA15-ED17654A118B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C6C9841-7727-40BF-BA15-ED17654A118B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C6C9841-7727-40BF-BA15-ED17654A118B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C6C9841-7727-40BF-BA15-ED17654A118B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E83F0DDF-1C3F-4D47-A112-6195B46736B6}
+	EndGlobalSection
+EndGlobal

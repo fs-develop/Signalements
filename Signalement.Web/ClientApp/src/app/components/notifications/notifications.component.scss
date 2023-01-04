@@ -1,0 +1,20 @@
+
+::ng-deep .snackbar-error-style {
+  background-color: brown;
+  color: white;
+}
+
+::ng-deep .snackbar-confirm-style {
+  background-color: green;
+  color: white;
+}
+
+::ng-deep .snackbar-warning-style {
+  background-color: orange;
+  color: white;
+}
+
+::ng-deep .snackbar-message-style {
+  background-color: blue;
+  color: white;
+}

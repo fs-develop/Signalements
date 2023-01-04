@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$fs-spinner-width: 4rem;
+$fs-spinner-height: $fs-spinner-width;
+$fs-spinner-color: deeppink;
+
+.fs-spinner {
+  width: $fs-spinner-width;
+  height: $fs-spinner-height;
+  color: $fs-spinner-color;
+}
+
+.spinnerHeight {
+  height: 500px;
+}
+
+.appTitle {
+  font-size: 2em;
+  color: white;
+}
+
+.sectionTitle {
+  font-size: 1.5em;
+  color: black;
+  font-weight: bold;
+  background-color: lightskyblue;
+  opacity: 0.8;
+}
+
+.mat-mdc-snack-bar-container {
+  // --mat-mdc-snack-bar-button-color: #ff4081;
+  --mdc-snackbar-container-color: unsert;
+  // --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+}
+
+

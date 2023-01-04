@@ -1,0 +1,52 @@
+
+<ng-container *ngIf="reportingListLength > 0 && !loadingInProgress; else loadingOrEmpty">
+    <div class="m-3">
+
+        <div class="alert alert-light border text-center sectionTitle" role="alert">
+            Liste des Signalements
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6"><div class="border rounded header-title d-none d-sm-block">Auteur</div></div>
+            <div class="col-sm-5"><div class="border rounded header-title d-none d-sm-block">Observations</div></div>
+            <div class="col-sm-11"><div class="border rounded header-title d-sm-none">Auteur et Observations</div></div>
+            <div class="col-sm-1"><!-- Edit command column --></div>
+        </div>
+        
+        <ng-container *ngFor="let report of reportingList">
+            <app-report [reportToRender]="report"></app-report>
+        </ng-container>
+
+    </div>
+</ng-container>
+
+<ng-template #loadingOrEmpty>
+
+    <div class="container-fluid">
+
+        <!-- Loading Reporting list in progress ... -->
+        <ng-container *ngIf="reportingListLength < 0 || loadingInProgress">
+            <div class="row align-items-center spinnerHeight">
+
+                <div class="text-center">
+                    <div class="spinner-border fs-spinner" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <h5 class="mt-2">Loading ...</h5>
+                </div>
+
+            </div>
+        </ng-container>
+
+        <!-- Empty Reporting list -->
+        <ng-container *ngIf="reportingListLength == 0 && !loadingInProgress">
+            <div class="p-3">
+                <div class="alert alert-warning text-center" role="alert">
+                    Aucun signalement dans la liste !
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+</ng-template>
+

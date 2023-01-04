@@ -1,0 +1,142 @@
+
+<div class="m-3">
+
+    <div class="alert alert-light border text-center sectionTitle" role="alert">
+        <span *ngIf="!isInEditMode">Ajouter un nouveau Signalement</span>
+        <span *ngIf="isInEditMode">Mettre à jour le Signalement</span>
+    </div>
+
+    <form [formGroup]="formReport" #formDirective="ngForm" (submit)="onSubmit()">
+
+        <div class="row">
+
+            <!-- First Name -->
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                <mat-form-field appearance="fill" class="input-full-width">
+                    <mat-label>Prénom</mat-label>
+                    <input matInput formControlName="firstNameCtrl" [maxlength]="maxLenUserData">
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-error *ngIf="firstNameCtrl?.invalid && (firstNameCtrl?.dirty || firstNameCtrl?.touched) && firstNameCtrl?.hasError('maxlength')">
+                        <span>Il faut comporter max {{ maxLenUserData }} caractères.</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <!-- Last Name -->
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                <mat-form-field appearance="fill" class="input-full-width">
+                    <mat-label>Nom</mat-label>
+                    <input matInput formControlName="lastNameCtrl" [maxlength]="maxLenUserData">
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-error *ngIf="lastNameCtrl?.invalid && (lastNameCtrl?.dirty || lastNameCtrl?.touched) && lastNameCtrl?.hasError('maxlength')">
+                        <span>Il faut comporter max {{ maxLenUserData }} caractères.</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <!-- Email -->
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                <mat-form-field appearance="fill" class="input-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="user@domain.com" formControlName="emailCtrl" required>
+                    <mat-icon matSuffix>alternate_email</mat-icon>
+                    <mat-error *ngIf="emailCtrl?.invalid && (emailCtrl?.dirty || emailCtrl?.touched) && (emailCtrl?.hasError('required') || emailCtrl?.hasError('pattern'))">
+                        <span *ngIf="emailCtrl?.hasError('required')">Ce champ est obligatoire.</span>
+                        <span *ngIf="emailCtrl?.hasError('pattern')">Ce champ est invalide.</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <!-- Birthdate -->
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                <mat-form-field appearance="fill" class="input-full-width">
+                    <mat-label>Date de naissance</mat-label>
+                    <input matInput
+                           [min]="minDate"
+                           [max]="maxDate"
+                           [matDatepicker]="picker"
+                           formControlName="birthDateCtrl">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="birthDateCtrl?.hasError('noValidBirthDate')">
+                        <span>Date de naissance invalide.</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <!-- Sex -->
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                <mat-radio-group aria-label="Sélectionner une option" formControlName="sexCtrl">
+                    <mat-radio-button class="input-radio-button" *ngFor="let sex of sexValues" [value]="sex">
+                        {{sex}}
+                    </mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+
+        </div>
+
+        <mat-divider class="my-2"></mat-divider>
+
+        <!-- Description -->
+        <div class="row">
+            <div class="col-md-6 col-lg-8">
+
+                <mat-form-field appearance="fill" class="input-full-width">
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="descriptionCtrl" [maxlength]="maxLenDescription">
+                    <mat-icon matSuffix>manage_search</mat-icon>
+                    <mat-error *ngIf="descriptionCtrl?.invalid && (descriptionCtrl?.dirty || descriptionCtrl?.touched) && (descriptionCtrl?.hasError('required') || descriptionCtrl?.hasError('maxlength'))">
+                        <span *ngIf="descriptionCtrl?.hasError('maxlength')">Il faut comporter max {{ maxLenDescription }} caractères.</span>
+                        <span *ngIf="descriptionCtrl?.hasError('required')">Ce champ est obligatoire.</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+
+                <!-- Observations list -->
+                <ng-container *ngIf="!loadingInProgress; else loading">
+
+                    <mat-selection-list formControlName="selectedObservations">
+                        <mat-list-option *ngFor="let observation of observationsList" [value]="observation">
+                            {{observation.name}}
+                        </mat-list-option>
+                    </mat-selection-list>
+
+                </ng-container>
+
+                <!-- Spinner Loading for Observations list -->
+                <ng-template #loading>
+                    <div class="text-center p-3">
+                        <div class="spinner-border fs-spinner" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h5 class="mt-2">Loading ...</h5>
+                    </div>
+                </ng-template>
+
+            </div>
+        </div>
+
+        <!-- Confirm button (add or update) -->
+        <div class="text-center">
+            <button mat-raised-button color="primary" type="submit" [title]="!isInEditMode ? 'Ajouter' : 'Mettre à jour'" [disabled]="formReport.invalid">
+                <span *ngIf="!isInEditMode">Ajouter</span>
+                <span *ngIf="isInEditMode">Mettre à jour</span>
+            </button>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,58 @@
+
+<ng-container *ngIf="report">
+
+    <div class="row mt-1 border-bottom mx-0">
+        <div class="col-sm-6">
+            <div>
+                <mat-icon class="item" title="Prénom et Nom">perm_identity</mat-icon>
+                <span class="me-1 d-none d-md-inline label-report">Prénom et Nom:</span>
+                <span class="me-1">{{ report.author.first_name }}</span>
+                <span>{{ report.author.last_name }}</span>
+            </div>
+            <div>
+                <mat-icon class="item" title="Email">alternate_email</mat-icon>
+                <span class="me-1 d-none d-md-inline label-report">Email:</span>
+                <span>{{ report.author.email }}</span>
+            </div>
+            <div>
+                <mat-icon class="item" title="Date de naissance">event</mat-icon>
+                <span class="me-1 d-none d-md-inline label-report">Date de naissance:</span>
+                <span>{{ report.author.birth_date | date:'longDate':undefined:'fr'}}</span>
+            </div>
+            <div>
+                <container-element [ngSwitch]="report.author.sex">
+                    <mat-icon *ngSwitchCase="Sex.Man" class="item" [title]="report.author.sex">male</mat-icon>
+                    <mat-icon *ngSwitchCase="Sex.Woman" class="item" [title]="report.author.sex">female</mat-icon>
+                    <mat-icon *ngSwitchDefault class="item" [title]="report.author.sex">transgender</mat-icon>
+                </container-element>
+
+                <span class="me-1 d-none d-md-inline label-report">Sexe:</span>
+                <span>{{ report.author.sex }}</span>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div>
+                <mat-icon class="item" title="Email">manage_search</mat-icon>
+                <span>{{ report.description }}</span>
+            </div>
+            <ul class="m-0">
+
+                <ng-container *ngFor="let observation of report.observations">
+                    <li>{{ observation.name }}</li>
+                </ng-container>
+
+            </ul>
+        </div>
+        <div class="col-sm-1">
+            <div class="d-flex align-items-center justify-content-center h-100">
+
+                <button mat-button (click)="onEdit(report.id)" title="modifier le signalement">
+                    <mat-icon class="item">edit</mat-icon>
+                    <span class="d-sm-none label-report">modifier</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</ng-container>

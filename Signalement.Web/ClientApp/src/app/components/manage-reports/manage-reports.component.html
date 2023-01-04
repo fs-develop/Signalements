@@ -1,0 +1,27 @@
+
+<div class="p-3 text-bg-dark text-center">
+    <span class="appTitle">Gestione des Signalements</span>
+</div>
+
+<div class="container-fluid">
+
+    <mat-tab-group [selectedIndex]="idxSelectedTab" (selectedIndexChange)="onTabChange($event)">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="tab-icon">subject</mat-icon>
+                Liste des Signalements
+            </ng-template>
+            <app-reports-list [idxSelectedTab]="idxSelectedTab"></app-reports-list>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="tab-icon">playlist_add</mat-icon>
+                Ajouter un Signalement
+            </ng-template>
+            <app-form-report [editReport]="editReport" (changeTab)="onChangeTab($event)"></app-form-report>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>
+

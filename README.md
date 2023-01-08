@@ -39,7 +39,7 @@ Maintenant vous pouvez démarrer votre navigateur (s'il n'a pas déjà démarré
 
 ### Ressources
 - Vous pouvez télécharger « Node.js » à partir d'[ici](https://nodejs.org/)
-- Pour installer « angular/cli », vous pouvez saisir la commande suivante dans une fenêtre terminal comme « Invite de commandes » : <br/> `npm install -g @angular/cli`
+- Pour installer « angular/cli », vous pouvez saisir la commande suivante dans une fenêtre terminal comme « Invite de commandes » : `npm install -g @angular/cli`
 
 
 ## Comment utiliser le projet

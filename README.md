@@ -37,6 +37,11 @@ Pour démarrer la partie client (après avoir installé « Node.js » et « angu
 
 Maintenant vous pouvez démarrer votre navigateur (s'il n'a pas déjà démarré) et taper l'adresse : http://localhost:4200/ , l'application est exécutée et la liste des Signalements est affiché.
 
+### Ressources
+- Vous pouvez télécharger « Node.js » à partir d'[ici](https://nodejs.org/)
+- Pour installer « angular/cli », vous pouvez saisir la commande suivante dans une fenêtre terminal comme « Invite de commandes » : <br/> `npm install -g @angular/cli`
+
+
 ## Comment utiliser le projet
 L'application Front-End est une application « responsive » avec la liste des Signalements comme page d'accueil, vous pouvez ajouter un nouveau rapport en cliquant sur le bouton/option « Ajouter un Signalement ».
 
